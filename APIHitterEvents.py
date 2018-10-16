@@ -8,14 +8,14 @@ def fetchUpcomingMITEvents(numberOfEvents):
     r = requests.get(url)
 
     data = json.loads(r.text)
-    print(data)
+    #print(data)
 
     outputText = "The next "+str(numberOfEvents)+" upcoming MIT events are "
-    print("The next",numberOfEvents, "upcoming MIT events are:\n")
+    #print("The next",numberOfEvents, "upcoming MIT events are:\n")
     for event in data[:numberOfEvents]:
-        print(event['title'],'\n')
+        #print(event['title'],'\n')
         outputText += event['title']+", "
         #print(event['title'],"at",event['start_at'],'\n')
     return outputText[:-2]+"."
 
-print(fetchUpcomingMITEvents(5))
+#print(fetchUpcomingMITEvents(5))
