@@ -2,6 +2,9 @@ import requests
 import json
 
 def fetchUpcomingMITEvents(numberOfEvents):
+    
+    
+    badCharacters = {'@':' at ','&':' and ','%':' percent ','#':' number ','*':' ','(':' ',')':' ','/':' '}
 
     url = "http://m.mit.edu/apis/calendars/events_calendar/events"
 
@@ -16,6 +19,10 @@ def fetchUpcomingMITEvents(numberOfEvents):
         #print(event['title'],'\n')
         outputText += event['title']+", "
         #print(event['title'],"at",event['start_at'],'\n')
-    return outputText[:-2]+"."
+    updatedString = list(outputText[:-2]+".")
+    for index,char in enumerate(updatedString):
+        if char in badCharacters:
+            updatedString[index] = badCharacters[char]
+    return "".join(updatedString)
 
 #print(fetchUpcomingMITEvents(5))
