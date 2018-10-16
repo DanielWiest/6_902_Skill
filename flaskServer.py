@@ -4,6 +4,7 @@ from APIHitterShuttle import nextArrivalTimeAt
 from APIHitterLaundry import getLaundryStatus
 from APIHitterEvents import fetchUpcomingMITEvents
 from APIHitterDining import callableThing
+import os
 
 app = Flask(__name__)
 
