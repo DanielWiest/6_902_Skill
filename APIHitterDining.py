@@ -25,6 +25,8 @@ class Menu:
         return printout
     
     def returnForAlexaReadout(self,mealType):
+        output = ""
+        
         if self.meals[-1].name == "Late Night":
             del self.meals[-1]
         
@@ -34,7 +36,11 @@ class Menu:
         elif mealType == "Lunch" and len(self.meals) == 2:
             mealType = "Brunch"
             
-        output = "For "+mealType+" "+self.cafe_name+" has "
+        if mealType == "Brunch" and len(self.meals) == 3:
+            mealType = "Lunch"
+            output += "There is no brunch today, but "
+            
+        output += "For "+mealType+" "+self.cafe_name+" has "
         for meal in self.meals:
             if meal.name == mealType:
                 for station in meal.stations:
