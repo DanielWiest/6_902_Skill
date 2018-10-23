@@ -5,7 +5,7 @@ def getLaundryStatus(dormString,washer,dryer):
     
     outputString = ""
     
-    dorms = {"baker":136484,"maseeh":1364830,'mccormik':136487}
+    dorms = {"baker":136484,"maseeh":1364830,'mccormik':136487,"burton-connor":1364811,"macgregor":1364815,"next-house":1364812}
     
     baseURL = "http://classic.laundryview.com/appliance_status_ajax.php?lr="
     
