@@ -9,7 +9,7 @@ def nextArrivalTimeAt(stringLocation):
     
     requestTime = time.time()
     
-    stops = {'Kendall_Square_T':'01','77_Mass_Ave':'02','84_Mass_Ave':'03','Unknown1':'04','Unknown2':'05'}
+    stops = {'Kendall_Square_T':'01','77_Mass_Ave':'02','84_Mass_Ave':'03','vassar_street_mass_ave':'52','simmons':'47','W98_at_Vassar_St':'67'}
 
     baseURL = "http://m.mit.edu/apis/shuttles/predictions/?agency=mit&stop_number="
     urlAppended = baseURL+stops[stringLocation]

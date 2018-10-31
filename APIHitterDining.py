@@ -26,19 +26,29 @@ class Menu:
     
     def returnForAlexaReadout(self,mealType):
         output = ""
-        
+        allMeals = [i.name for i in self.meals]
         if self.meals[-1].name == "Late Night":
             del self.meals[-1]
-        
-        if mealType == "Breakfast" and len(self.meals) == 2:
-            mealType = "Brunch"
-        
-        elif mealType == "Lunch" and len(self.meals) == 2:
-            mealType = "Brunch"
+
+        if self.cafe_name == "The Howard Dining Hall at Maseeh":
+            if mealType == "Breakfast" and len(self.meals) == 2:
+                output += "There is no breakfast today, but "
+                mealType = "Brunch"
             
-        if mealType == "Brunch" and len(self.meals) == 3:
-            mealType = "Lunch"
-            output += "There is no brunch today, but "
+            elif mealType == "Lunch" and len(self.meals) == 2:
+                output += "There is no lunch today, but "
+                mealType = "Brunch"
+                
+            elif mealType == "Brunch" and len(self.meals) == 3:
+                output += "There is no brunch today, but "
+                mealType = "Lunch"
+        else:
+            if "Brunch" in allMeals and mealType == "Breakfast":
+                output += "There is no breakfast today, but "
+                mealType = "Brunch"
+            elif "Breakfast" in allMeals and mealType == "Brunch":
+                output += "There is no Brunch today, but "
+                mealType = "Breakfast"
             
         output += "For "+mealType+" "+self.cafe_name+" has "
         for meal in self.meals:
