@@ -43,12 +43,17 @@ class Menu:
                 output += "There is no brunch today, but "
                 mealType = "Lunch"
         else:
+            
             if "Brunch" in allMeals and mealType == "Breakfast":
                 output += "There is no breakfast today, but "
                 mealType = "Brunch"
             elif "Breakfast" in allMeals and mealType == "Brunch":
                 output += "There is no Brunch today, but "
                 mealType = "Breakfast"
+                
+            if mealType == "Lunch":
+                output += "Lunch is not served at this dorm, but "
+                mealType = "Dinner"
             
         output += "For "+mealType+" "+self.cafe_name+" has "
         for meal in self.meals:
