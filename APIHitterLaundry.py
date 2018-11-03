@@ -1,5 +1,4 @@
 import requests
-import json
 
 def getLaundryStatus(dormString,washer,dryer):
     
