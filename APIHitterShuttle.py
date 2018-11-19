@@ -33,7 +33,6 @@ def nextArrivalTimeAt(stringLocation):
                 print(theRoute,"is running!") 
                 nextShuttle = currentShuttles[0]
                 timestamp = nextShuttle['timestamp']
-                hrTime = time.strftime("%H:%M:%S", time.localtime(timestamp))
                 outputText += "the "+theRoute+" arrives at "+route['stop_title']+" in "+str(math.floor((timestamp-requestTime)/60))+" minutes. Also, "
         
         if not atLeastOneRouteTo:
