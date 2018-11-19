@@ -25,42 +25,57 @@ class Menu:
         return printout
     
     def returnForAlexaReadout(self,mealType):
+        
+        NUMBER_OF_ITEMS_TO_RETURN = 12
+        
         output = ""
+        
+        itemSet = set()
         allMeals = [i.name for i in self.meals]
         if self.meals[-1].name == "Late Night":
             del self.meals[-1]
 
         if self.cafe_name == "The Howard Dining Hall at Maseeh":
             if mealType == "Breakfast" and len(self.meals) == 2:
-                output += "There is no breakfast today, but "
+                output += "There is no breakfast today, so I will read the brunch menu instead. "
                 mealType = "Brunch"
             
             elif mealType == "Lunch" and len(self.meals) == 2:
-                output += "There is no lunch today, but "
+                output += "There is no lunch today, so I will read the brunch menu instead. "
                 mealType = "Brunch"
                 
             elif mealType == "Brunch" and len(self.meals) == 3:
-                output += "There is no brunch today, but "
+                output += "There is no brunch today, so I will read the lunch menu instead. "
                 mealType = "Lunch"
         else:
             
             if "Brunch" in allMeals and mealType == "Breakfast":
-                output += "There is no breakfast today, but "
+                output += "There is no breakfast today, so I will read the brunch menu instead. "
                 mealType = "Brunch"
+                
             elif "Breakfast" in allMeals and mealType == "Brunch":
-                output += "There is no Brunch today, but "
+                output += "There is no Brunch today, so I will read the breakfast menu instead. "
                 mealType = "Breakfast"
                 
             if mealType == "Lunch":
-                output += "Lunch is not served at this dorm, but "
+                output += "Lunch is not served at this dorm, so I will read the dinner menu instead. "
                 mealType = "Dinner"
             
-        output += "For "+mealType+" "+self.cafe_name+" has "
         for meal in self.meals:
             if meal.name == mealType:
                 for station in meal.stations:
                     for special in meal.stations[station].specials:
-                        output += special["label"]+" and "
+                        itemSet.add(special["label"])
+                        
+        allItemsList = list(itemSet)
+        numberItems = len(allItemsList)
+        
+        if numberItems > NUMBER_OF_ITEMS_TO_RETURN:
+            output += "Because of the large number of items available at "+self.cafe_name+" for "+mealType+", only "+ str(NUMBER_OF_ITEMS_TO_RETURN)+" out of "+str(numberItems)+" menu items will be listed. "
+        
+        output += "For "+mealType+" "+self.cafe_name+" has "
+        for menuItem in allItemsList[:NUMBER_OF_ITEMS_TO_RETURN]:
+            output += menuItem+" and "
                         
         return output[:-5]+"."
 
