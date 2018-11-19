@@ -70,12 +70,17 @@ class Menu:
         allItemsList = list(itemSet)
         numberItems = len(allItemsList)
         
+        if self.cafe_name == "The Howard Dining Hall at Mass e"
+        
         if numberItems > NUMBER_OF_ITEMS_TO_RETURN:
             output += "Because of the large number of items available at "+self.cafe_name+" for "+mealType+", only "+ str(NUMBER_OF_ITEMS_TO_RETURN)+" out of "+str(numberItems)+" menu items will be listed. "
         
         output += "For "+mealType+" "+self.cafe_name+" has "
         for menuItem in allItemsList[:NUMBER_OF_ITEMS_TO_RETURN]:
             output += menuItem+" and "
+            
+        if numberItems == 0:
+            return "The dining staff does not seem to have properly input the menu for today, I apologize for the inconvenience."
                         
         return output[:-5]+"."
 

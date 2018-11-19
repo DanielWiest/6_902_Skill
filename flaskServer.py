@@ -29,7 +29,6 @@ def handleEvents():
 
 @app.route('/dining/<location>/<meal>')
 def handleDining(meal,location):
-    CAFE_NAMES = ['the-howard-dining-hall-at-maseeh','next','simmons',]
     response = callableThing(meal,location)
     return jsonify([response])
 
