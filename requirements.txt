@@ -5,3 +5,4 @@ gunicorn==19.9.0
 gevent==1.2.2
 zope.interface==4.6.0
 DateTime==4.3
+python-dateutil==2.6.1
