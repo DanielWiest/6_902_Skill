@@ -26,7 +26,7 @@ class Menu:
     
     def returnForAlexaReadout(self,mealType):
         
-        NUMBER_OF_ITEMS_TO_RETURN = 10
+        NUMBER_OF_ITEMS_TO_RETURN = 8
         
         output = ""
         
@@ -73,7 +73,7 @@ class Menu:
         if self.cafe_name == "The Howard Dining Hall at Maseeh":
             self.cafe_name = "The Howard Dining Hall at Mass e"
         
-        if numberItems > NUMBER_OF_ITEMS_TO_RETURN:
+        if numberItems > NUMBER_OF_ITEMS_TO_RETURN+3:
             output += "Because of the large number of items available at "+self.cafe_name+" for "+mealType+", only "+ str(NUMBER_OF_ITEMS_TO_RETURN)+" out of "+str(numberItems)+" menu items will be listed. "
         
         output += "For "+mealType+" "+self.cafe_name+" has "
